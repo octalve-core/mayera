@@ -69,6 +69,7 @@ test("portal navigation remains serializable and customer routes reject privileg
   const adminNav = readFileSync("src/features/admin/components/nav.ts", "utf8");
   const superAdminNav = readFileSync("src/features/super-admin/components/nav.ts", "utf8");
   const session = readFileSync("src/server/auth/session.ts", "utf8");
+  const accountLayout = readFileSync("src/app/(account)/account/layout.tsx", "utf8");
 
   assert.match(portalShell, /const portalIcons =/);
   assert.match(portalShell, /icon: keyof typeof portalIcons/);
@@ -77,6 +78,13 @@ test("portal navigation remains serializable and customer routes reject privileg
   assert.match(portalShell, /fetch\("\/api\/auth\/logout", \{ method: "POST" \}\)/);
   assert.match(portalShell, /Signed in as/);
   assert.match(portalShell, /onClick=\{signOut\}/);
+  assert.match(accountLayout, /mobileNavigation="customer"/);
+  assert.match(portalShell, /customerPrimaryNav = customerMobile \? nav\.slice\(0, 4\)/);
+  assert.match(portalShell, /customerMoreNav = customerMobile \? nav\.slice\(4\)/);
+  assert.match(portalShell, /aria-label="Customer navigation"/);
+  assert.match(portalShell, /aria-haspopup="dialog"/);
+  assert.match(portalShell, /aria-labelledby="customer-more-title"/);
+  assert.match(portalShell, />More<\/span>/);
   for (const nav of [accountNav, adminNav, superAdminNav]) {
     assert.doesNotMatch(nav, /icon:\s*[A-Z][A-Za-z]+Icon/);
     assert.match(nav, /icon:\s*"[A-Za-z]+"/);
