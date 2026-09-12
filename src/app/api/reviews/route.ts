@@ -1,0 +1,3 @@
+import {NextRequest} from "next/server";
+import {prisma} from "@/lib/prisma";
+export async function GET(request:NextRequest){const productId=request.nextUrl.searchParams.get("productId")?.slice(0,100);if(!productId||!process.env.DATABASE_URL)return Response.json({reviews:[]});const reviews=await prisma.review.findMany({where:{productId,status:"PUBLISHED",verified:true},orderBy:{createdAt:"desc"},take:50,select:{id:true,rating:true,title:true,body:true,createdAt:true,user:{select:{firstName:true}}}});return Response.json({reviews:reviews.map(review=>({...review,firstName:review.user?.firstName??null,user:undefined}))})}

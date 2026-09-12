@@ -1,0 +1,462 @@
+mayera-complete
+├── .env.example
+├── .gitignore
+├── eslint.config.mjs
+├── next-env.d.ts
+├── next.config.ts
+├── NORMAL_CHAT_HANDOFF.md
+├── package.json
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+├── postcss.config.mjs
+├── prisma
+│   ├── migrations
+│   │   ├── 20260909000000_initial
+│   │   │   └── migration.sql
+│   │   └── migration_lock.toml
+│   └── schema.prisma
+├── prisma.config.ts
+├── PROJECT_STRUCTURE.txt
+├── public
+│   ├── brand
+│   │   ├── logo
+│   │   │   └── mayera-logo.png
+│   │   └── patterns
+│   │       └── mayera-botanical.svg
+│   ├── images
+│   │   ├── home
+│   │   │   └── hero-woman.jpg
+│   │   ├── ingredients
+│   │   │   └── ingredients-lab.jpg
+│   │   ├── products
+│   │   │   ├── hair-bundle.png
+│   │   │   ├── hair-butter.png
+│   │   │   ├── hair-mask.png
+│   │   │   └── hair-oil.png
+│   │   └── story
+│   │       └── story-woman.jpg
+│   └── products
+│       ├── hair-butter
+│       └── scalp-oil
+├── README.md
+├── scripts
+│   ├── clean-next.mjs
+│   ├── generate-secrets.mjs
+│   ├── print-tree.mjs
+│   ├── release-expired-orders.mjs
+│   ├── send-email-queue.mjs
+│   └── setup-check.mjs
+├── SETUP_GUIDE.md
+├── src
+│   ├── app
+│   │   ├── (account)
+│   │   │   └── account
+│   │   │       ├── addresses
+│   │   │       │   └── page.tsx
+│   │   │       ├── layout.tsx
+│   │   │       ├── orders
+│   │   │       │   ├── [number]
+│   │   │       │   │   └── page.tsx
+│   │   │       │   └── page.tsx
+│   │   │       ├── page.tsx
+│   │   │       ├── privacy
+│   │   │       │   └── page.tsx
+│   │   │       ├── profile
+│   │   │       │   └── page.tsx
+│   │   │       ├── reviews
+│   │   │       │   └── page.tsx
+│   │   │       ├── support
+│   │   │       │   └── page.tsx
+│   │   │       └── wishlist
+│   │   │           └── page.tsx
+│   │   ├── (admin)
+│   │   │   └── admin
+│   │   │       ├── analytics
+│   │   │       │   └── page.tsx
+│   │   │       ├── categories
+│   │   │       │   └── page.tsx
+│   │   │       ├── content
+│   │   │       │   └── page.tsx
+│   │   │       ├── customers
+│   │   │       │   └── page.tsx
+│   │   │       ├── delivery
+│   │   │       │   └── page.tsx
+│   │   │       ├── discounts
+│   │   │       │   └── page.tsx
+│   │   │       ├── inventory
+│   │   │       │   └── page.tsx
+│   │   │       ├── journal
+│   │   │       │   └── page.tsx
+│   │   │       ├── layout.tsx
+│   │   │       ├── media
+│   │   │       │   └── page.tsx
+│   │   │       ├── orders
+│   │   │       │   └── page.tsx
+│   │   │       ├── page.tsx
+│   │   │       ├── products
+│   │   │       │   └── page.tsx
+│   │   │       ├── reviews
+│   │   │       │   └── page.tsx
+│   │   │       ├── settings
+│   │   │       │   └── page.tsx
+│   │   │       └── support
+│   │   │           └── page.tsx
+│   │   ├── (auth)
+│   │   │   ├── create-account
+│   │   │   │   └── page.tsx
+│   │   │   ├── security
+│   │   │   │   └── mfa-required
+│   │   │   │       └── page.tsx
+│   │   │   └── sign-in
+│   │   │       └── page.tsx
+│   │   ├── (checkout)
+│   │   │   ├── checkout
+│   │   │   │   ├── page.tsx
+│   │   │   │   └── success
+│   │   │   │       └── page.tsx
+│   │   │   └── layout.tsx
+│   │   ├── (store)
+│   │   │   ├── about
+│   │   │   │   └── page.tsx
+│   │   │   ├── cart
+│   │   │   │   └── page.tsx
+│   │   │   ├── contact
+│   │   │   │   └── page.tsx
+│   │   │   ├── hair
+│   │   │   │   └── page.tsx
+│   │   │   ├── hair-journal
+│   │   │   │   ├── [slug]
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── page.tsx
+│   │   │   ├── layout.tsx
+│   │   │   ├── our-story
+│   │   │   │   └── page.tsx
+│   │   │   ├── page.tsx
+│   │   │   ├── privacy
+│   │   │   │   └── page.tsx
+│   │   │   ├── products
+│   │   │   │   └── [slug]
+│   │   │   │       └── page.tsx
+│   │   │   ├── returns
+│   │   │   │   └── page.tsx
+│   │   │   ├── search
+│   │   │   │   └── page.tsx
+│   │   │   ├── shipping
+│   │   │   │   └── page.tsx
+│   │   │   ├── shop
+│   │   │   │   ├── [slug]
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── page.tsx
+│   │   │   ├── terms
+│   │   │   │   └── page.tsx
+│   │   │   └── track-order
+│   │   │       └── page.tsx
+│   │   ├── (super-admin)
+│   │   │   └── super-admin
+│   │   │       ├── admins
+│   │   │       │   └── page.tsx
+│   │   │       ├── audit-logs
+│   │   │       │   └── page.tsx
+│   │   │       ├── integrations
+│   │   │       │   └── page.tsx
+│   │   │       ├── layout.tsx
+│   │   │       ├── page.tsx
+│   │   │       ├── payments
+│   │   │       │   └── page.tsx
+│   │   │       ├── permissions
+│   │   │       │   └── page.tsx
+│   │   │       ├── roles
+│   │   │       │   └── page.tsx
+│   │   │       ├── sessions
+│   │   │       │   └── page.tsx
+│   │   │       ├── settings
+│   │   │       │   └── page.tsx
+│   │   │       ├── system-health
+│   │   │       │   └── page.tsx
+│   │   │       └── webhooks
+│   │   │           └── page.tsx
+│   │   ├── api
+│   │   │   ├── admin
+│   │   │   │   └── media
+│   │   │   │       └── upload
+│   │   │   │           └── route.ts
+│   │   │   ├── auth
+│   │   │   │   ├── login
+│   │   │   │   │   └── route.ts
+│   │   │   │   ├── logout
+│   │   │   │   │   └── route.ts
+│   │   │   │   └── register
+│   │   │   │       └── route.ts
+│   │   │   ├── contact
+│   │   │   │   └── route.ts
+│   │   │   ├── newsletter
+│   │   │   │   └── route.ts
+│   │   │   ├── orders
+│   │   │   │   └── track
+│   │   │   │       └── route.ts
+│   │   │   ├── payments
+│   │   │   │   └── paystack
+│   │   │   │       ├── initialize
+│   │   │   │       │   └── route.ts
+│   │   │   │       └── verify
+│   │   │   │           └── route.ts
+│   │   │   ├── reviews
+│   │   │   │   └── route.ts
+│   │   │   ├── setup
+│   │   │   │   └── owner
+│   │   │   │       └── route.ts
+│   │   │   ├── webhooks
+│   │   │   │   └── paystack
+│   │   │   │       └── route.ts
+│   │   │   └── wishlist
+│   │   │       └── route.ts
+│   │   ├── error.tsx
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   ├── loading.tsx
+│   │   ├── not-found.tsx
+│   │   ├── robots.ts
+│   │   ├── setup
+│   │   │   └── page.tsx
+│   │   └── sitemap.ts
+│   ├── components
+│   │   ├── auth
+│   │   │   └── auth-shell.tsx
+│   │   ├── commerce
+│   │   │   ├── add-to-cart-button.tsx
+│   │   │   ├── buy-again-button.tsx
+│   │   │   ├── product-card.tsx
+│   │   │   ├── product-image.tsx
+│   │   │   └── wishlist-button.tsx
+│   │   ├── layout
+│   │   │   ├── announcement-bar.tsx
+│   │   │   ├── brand-logo.tsx
+│   │   │   ├── cart-drawer.tsx
+│   │   │   ├── footer.tsx
+│   │   │   └── header.tsx
+│   │   ├── portal
+│   │   │   ├── page-heading.tsx
+│   │   │   ├── portal-shell.tsx
+│   │   │   └── stat-card.tsx
+│   │   └── ui
+│   │       ├── button.tsx
+│   │       ├── container.tsx
+│   │       ├── icons.tsx
+│   │       ├── section-heading.tsx
+│   │       └── section.tsx
+│   ├── data
+│   │   ├── articles.ts
+│   │   ├── categories.ts
+│   │   └── products.ts
+│   ├── features
+│   │   ├── account
+│   │   │   ├── actions.ts
+│   │   │   ├── addresses
+│   │   │   │   └── page.tsx
+│   │   │   ├── components
+│   │   │   │   └── nav.ts
+│   │   │   ├── dashboard
+│   │   │   │   └── page.tsx
+│   │   │   ├── order-details
+│   │   │   │   └── page.tsx
+│   │   │   ├── orders
+│   │   │   │   └── page.tsx
+│   │   │   ├── privacy
+│   │   │   │   └── page.tsx
+│   │   │   ├── profile
+│   │   │   │   └── page.tsx
+│   │   │   ├── reviews
+│   │   │   │   └── page.tsx
+│   │   │   ├── support
+│   │   │   │   └── page.tsx
+│   │   │   └── wishlist
+│   │   │       └── page.tsx
+│   │   ├── admin
+│   │   │   ├── actions.ts
+│   │   │   ├── analytics
+│   │   │   │   └── page.tsx
+│   │   │   ├── categories
+│   │   │   │   └── page.tsx
+│   │   │   ├── components
+│   │   │   │   └── nav.ts
+│   │   │   ├── content
+│   │   │   │   └── page.tsx
+│   │   │   ├── customers
+│   │   │   │   └── page.tsx
+│   │   │   ├── dashboard
+│   │   │   │   └── page.tsx
+│   │   │   ├── discounts
+│   │   │   │   └── page.tsx
+│   │   │   ├── inventory
+│   │   │   │   └── page.tsx
+│   │   │   ├── journal
+│   │   │   │   └── page.tsx
+│   │   │   ├── media
+│   │   │   │   ├── page.tsx
+│   │   │   │   └── upload-form.tsx
+│   │   │   ├── orders
+│   │   │   │   └── page.tsx
+│   │   │   ├── products
+│   │   │   │   └── page.tsx
+│   │   │   ├── reviews
+│   │   │   │   └── page.tsx
+│   │   │   ├── settings
+│   │   │   │   └── page.tsx
+│   │   │   └── support
+│   │   │       └── page.tsx
+│   │   ├── auth
+│   │   │   ├── register-form.tsx
+│   │   │   └── sign-in-form.tsx
+│   │   ├── cart
+│   │   │   ├── cart-provider.tsx
+│   │   │   ├── components
+│   │   │   │   ├── cart-lines.tsx
+│   │   │   │   └── cart-summary.tsx
+│   │   │   └── page.tsx
+│   │   ├── checkout
+│   │   │   ├── components
+│   │   │   │   ├── checkout-form.tsx
+│   │   │   │   └── order-summary.tsx
+│   │   │   ├── page.tsx
+│   │   │   └── success
+│   │   │       └── success-client.tsx
+│   │   ├── contact
+│   │   │   ├── components
+│   │   │   │   └── contact-form.tsx
+│   │   │   └── page.tsx
+│   │   ├── hair
+│   │   │   ├── components
+│   │   │   │   ├── cta.tsx
+│   │   │   │   ├── hero.tsx
+│   │   │   │   ├── philosophy.tsx
+│   │   │   │   └── products.tsx
+│   │   │   └── page.tsx
+│   │   ├── home
+│   │   │   ├── components
+│   │   │   │   ├── brand-story.tsx
+│   │   │   │   ├── featured-product.tsx
+│   │   │   │   ├── hero.tsx
+│   │   │   │   ├── ingredients.tsx
+│   │   │   │   ├── journal-preview.tsx
+│   │   │   │   ├── length-retention.tsx
+│   │   │   │   ├── mayera-stories.tsx
+│   │   │   │   ├── newsletter.tsx
+│   │   │   │   ├── ritual.tsx
+│   │   │   │   ├── social-gallery.tsx
+│   │   │   │   └── trust-strip.tsx
+│   │   │   └── page.tsx
+│   │   ├── journal
+│   │   │   ├── article
+│   │   │   │   └── page.tsx
+│   │   │   ├── components
+│   │   │   │   ├── article-grid.tsx
+│   │   │   │   └── hero.tsx
+│   │   │   └── page.tsx
+│   │   ├── legal-page.tsx
+│   │   ├── our-story
+│   │   │   ├── components
+│   │   │   │   ├── founders.tsx
+│   │   │   │   ├── hero.tsx
+│   │   │   │   ├── philosophy.tsx
+│   │   │   │   └── story.tsx
+│   │   │   └── page.tsx
+│   │   ├── product
+│   │   │   ├── components
+│   │   │   │   ├── details.tsx
+│   │   │   │   ├── faq.tsx
+│   │   │   │   ├── product-main.tsx
+│   │   │   │   ├── related.tsx
+│   │   │   │   ├── reviews.tsx
+│   │   │   │   └── sticky-mobile-cart.tsx
+│   │   │   └── page.tsx
+│   │   ├── search
+│   │   │   └── page.tsx
+│   │   ├── setup
+│   │   │   ├── page.tsx
+│   │   │   └── setup-form.tsx
+│   │   ├── shop
+│   │   │   ├── components
+│   │   │   │   ├── hero.tsx
+│   │   │   │   └── product-grid.tsx
+│   │   │   └── page.tsx
+│   │   ├── super-admin
+│   │   │   ├── actions.ts
+│   │   │   ├── admins
+│   │   │   │   └── page.tsx
+│   │   │   ├── audit-logs
+│   │   │   │   └── page.tsx
+│   │   │   ├── components
+│   │   │   │   └── nav.ts
+│   │   │   ├── dashboard
+│   │   │   │   └── page.tsx
+│   │   │   ├── integrations
+│   │   │   │   └── page.tsx
+│   │   │   ├── payments
+│   │   │   │   └── page.tsx
+│   │   │   ├── permissions
+│   │   │   │   └── page.tsx
+│   │   │   ├── roles
+│   │   │   │   └── page.tsx
+│   │   │   ├── sessions
+│   │   │   │   └── page.tsx
+│   │   │   ├── settings
+│   │   │   │   └── page.tsx
+│   │   │   ├── system-health
+│   │   │   │   └── page.tsx
+│   │   │   └── webhooks
+│   │   │       └── page.tsx
+│   │   └── track-order
+│   │       └── page.tsx
+│   ├── hooks
+│   ├── lib
+│   │   ├── env.ts
+│   │   ├── money.ts
+│   │   ├── prisma.ts
+│   │   └── site.ts
+│   ├── proxy.ts
+│   ├── server
+│   │   ├── audit
+│   │   │   └── events.ts
+│   │   ├── auth
+│   │   │   ├── constants.ts
+│   │   │   ├── permissions.ts
+│   │   │   └── session.ts
+│   │   ├── catalog
+│   │   │   └── public.ts
+│   │   ├── checkout
+│   │   │   └── service.ts
+│   │   ├── content
+│   │   │   └── public.ts
+│   │   ├── database
+│   │   │   └── public-read.ts
+│   │   ├── email
+│   │   │   └── resend.ts
+│   │   ├── payments
+│   │   │   ├── paystack.ts
+│   │   │   ├── reconcile.ts
+│   │   │   └── refunds.ts
+│   │   ├── security
+│   │   │   ├── encryption.ts
+│   │   │   ├── password.ts
+│   │   │   ├── rate-limit.ts
+│   │   │   ├── request.ts
+│   │   │   └── totp.ts
+│   │   ├── setup
+│   │   │   ├── launch-data.ts
+│   │   │   └── status.ts
+│   │   ├── shipping
+│   │   │   └── provider.ts
+│   │   └── storage
+│   │       └── s3.ts
+│   └── types
+│       └── commerce.ts
+├── tailwind.config.ts
+├── tests
+│   ├── brand-assets.test.mjs
+│   ├── catalogue.test.mjs
+│   ├── migration.test.mjs
+│   ├── routes-and-security.test.mjs
+│   └── setup-regression.test.mjs
+├── tsconfig.json
+├── tsconfig.tsbuildinfo
+└── VERIFICATION.md

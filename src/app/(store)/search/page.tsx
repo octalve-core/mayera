@@ -1,0 +1,1 @@
+import type {Metadata} from "next";import SearchPage from "@/features/search/page";export const metadata:Metadata={title:"Search"};export const dynamic="force-dynamic";export default async function Page({searchParams}:{searchParams:Promise<{q?:string}>}){const {q}=await searchParams;return <SearchPage query={q??""}/>}

@@ -1,0 +1,53 @@
+export const catalogueCategories = [
+  { slug: "hair", name: "Hair", parentSlug: null, sortOrder: 10 },
+  { slug: "haircare", name: "Haircare", parentSlug: "hair", sortOrder: 20 },
+  { slug: "long-hair", name: "Long Hair", parentSlug: "hair", sortOrder: 30 },
+  {
+    slug: "best-seller-haircare",
+    name: "Best Seller Haircare",
+    parentSlug: "hair",
+    sortOrder: 40,
+  },
+  { slug: "skincare", name: "Skincare", parentSlug: null, sortOrder: 50 },
+  {
+    slug: "best-seller-skin-care",
+    name: "Best Seller Skin Care",
+    parentSlug: "skincare",
+    sortOrder: 60,
+  },
+  { slug: "body-care", name: "Body Care", parentSlug: null, sortOrder: 70 },
+  { slug: "eye-care", name: "Eye Care", parentSlug: null, sortOrder: 80 },
+  { slug: "lip-care", name: "Lip Care", parentSlug: null, sortOrder: 90 },
+  { slug: "weightloss", name: "Weightloss", parentSlug: null, sortOrder: 100 },
+  {
+    slug: "diet-plan",
+    name: "Diet Plan",
+    parentSlug: "weightloss",
+    sortOrder: 110,
+  },
+  { slug: "tea", name: "Tea", parentSlug: "weightloss", sortOrder: 120 },
+  {
+    slug: "spa-product",
+    name: "Spa Product",
+    parentSlug: null,
+    sortOrder: 130,
+  },
+  {
+    slug: "shop-by-concern",
+    name: "Shop by Concern",
+    parentSlug: null,
+    sortOrder: 140,
+  },
+  {
+    slug: "best-seller",
+    name: "Best Seller",
+    parentSlug: null,
+    sortOrder: 150,
+  },
+  {
+    slug: "deal-of-the-week",
+    name: "Deal of the Week",
+    parentSlug: null,
+    sortOrder: 160,
+  },
+] as const;

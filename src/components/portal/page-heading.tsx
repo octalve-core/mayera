@@ -1,0 +1,3 @@
+export function PortalPageHeading({ eyebrow, title, description, action }: { eyebrow: string; title: string; description?: string; action?: React.ReactNode }) {
+  return <div className="flex flex-col gap-5 border-b border-mayera-line pb-7 sm:flex-row sm:items-end sm:justify-between"><div><p className="text-[10px] font-semibold uppercase tracking-luxury text-mayera-olive">{eyebrow}</p><h2 className="mt-3 font-serif text-4xl tracking-[-0.035em] sm:text-5xl">{title}</h2>{description ? <p className="mt-3 max-w-2xl text-sm leading-7 text-mayera-espresso/55">{description}</p> : null}</div>{action}</div>;
+}

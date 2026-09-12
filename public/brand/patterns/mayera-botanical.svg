@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="800" height="1600" viewBox="0 0 800 1600">
+  <!-- Transparent background by default -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Main warm-amber stem -->
+    <path d="M380 1550
+             C410 1370, 455 1200, 520 1035
+             C585 870, 605 710, 620 550
+             C635 390, 655 250, 705 100"
+          stroke="#9A5B33" stroke-width="8"/>
+
+    <!-- Secondary olive stem -->
+    <path d="M355 1550
+             C335 1360, 350 1190, 405 1020
+             C460 850, 475 690, 470 535
+             C465 385, 500 255, 565 145"
+          stroke="#77734E" stroke-width="10"/>
+
+    <!-- Thin decorative amber stems -->
+    <path d="M430 1325
+             C525 1270, 605 1175, 655 1060
+             C700 955, 705 870, 700 805"
+          stroke="#B57A52" stroke-width="5"/>
+
+    <path d="M395 1185
+             C300 1115, 270 1015, 285 900
+             C300 790, 350 730, 405 690"
+          stroke="#B57A52" stroke-width="5"/>
+
+    <path d="M520 885
+             C650 820, 720 720, 748 610"
+          stroke="#B57A52" stroke-width="4"/>
+
+    <!-- Filled olive leaves -->
+    <path d="M470 980
+             C520 855, 625 805, 710 825
+             C665 930, 575 1000, 470 980 Z"
+          fill="#77734E" stroke="#77734E" stroke-width="4"/>
+
+    <path d="M405 1115
+             C335 1005, 345 900, 425 825
+             C495 920, 495 1030, 405 1115 Z"
+          fill="#77734E" stroke="#77734E" stroke-width="4"/>
+
+    <path d="M530 660
+             C575 555, 660 510, 735 525
+             C700 625, 620 685, 530 660 Z"
+          fill="#77734E" stroke="#77734E" stroke-width="4"/>
+
+    <path d="M500 455
+             C445 370, 455 285, 520 225
+             C575 310, 570 395, 500 455 Z"
+          fill="#77734E" stroke="#77734E" stroke-width="4"/>
+
+    <!-- Midrib lines on filled leaves -->
+    <path d="M493 962 C555 920, 615 875, 684 842"
+          stroke="#58563E" stroke-width="3" opacity="0.7"/>
+    <path d="M407 1088 C405 1008, 414 927, 428 850"
+          stroke="#58563E" stroke-width="3" opacity="0.7"/>
+    <path d="M548 648 C596 610, 647 575, 709 541"
+          stroke="#58563E" stroke-width="3" opacity="0.7"/>
+    <path d="M505 438 C509 372, 515 307, 523 245"
+          stroke="#58563E" stroke-width="3" opacity="0.7"/>
+
+    <!-- Outline leaves in warm amber -->
+    <path d="M440 1310
+             C345 1240, 320 1145, 350 1055
+             C430 1110, 470 1205, 440 1310 Z"
+          stroke="#C18B61" stroke-width="5"/>
+
+    <path d="M580 1205
+             C660 1130, 735 1120, 790 1160
+             C725 1235, 650 1265, 580 1205 Z"
+          stroke="#C18B61" stroke-width="5"/>
+
+    <path d="M600 1010
+             C665 930, 735 915, 790 945
+             C740 1025, 675 1060, 600 1010 Z"
+          stroke="#C18B61" stroke-width="5"/>
+
+    <path d="M300 905
+             C245 820, 255 740, 325 685
+             C370 770, 360 850, 300 905 Z"
+          stroke="#C18B61" stroke-width="5"/>
+
+    <path d="M655 510
+             C700 430, 755 405, 798 430
+             C765 500, 720 535, 655 510 Z"
+          stroke="#C18B61" stroke-width="5"/>
+
+    <path d="M685 260
+             C720 200, 765 185, 798 205
+             C772 255, 735 285, 685 260 Z"
+          stroke="#C18B61" stroke-width="5"/>
+
+    <!-- Inner veins for outline leaves -->
+    <path d="M368 1075 C392 1145, 415 1210, 432 1282"
+          stroke="#C18B61" stroke-width="3"/>
+    <path d="M602 1202 C660 1195, 717 1180, 770 1165"
+          stroke="#C18B61" stroke-width="3"/>
+    <path d="M619 1002 C668 984, 717 965, 765 947"
+          stroke="#C18B61" stroke-width="3"/>
+    <path d="M307 887 C318 823, 324 757, 326 705"
+          stroke="#C18B61" stroke-width="3"/>
+    <path d="M666 504 C708 487, 749 463, 785 438"
+          stroke="#C18B61" stroke-width="3"/>
+    <path d="M692 254 C728 240, 760 224, 790 207"
+          stroke="#C18B61" stroke-width="3"/>
+
+    <!-- Small leaf pair -->
+    <path d="M365 1440
+             C305 1408, 270 1350, 278 1292
+             C335 1312, 375 1360, 365 1440 Z"
+          fill="#77734E" stroke="#77734E" stroke-width="4"/>
+
+    <path d="M430 1458
+             C492 1418, 550 1420, 595 1455
+             C545 1500, 488 1510, 430 1458 Z"
+          stroke="#C18B61" stroke-width="5"/>
+
+  </g>
+</svg>

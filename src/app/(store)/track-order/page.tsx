@@ -1,0 +1,1 @@
+import type {Metadata} from "next";import TrackOrderPage from "@/features/track-order/page";export const metadata:Metadata={title:"Track order",robots:{index:false,follow:false}};export default TrackOrderPage;
