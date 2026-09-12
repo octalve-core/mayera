@@ -54,6 +54,11 @@ export function PortalShell({
   const pathname = usePathname();
   const activeClass = accent === "amber" ? "bg-mayera-amber text-white" : accent === "espresso" ? "bg-mayera-espresso text-white" : "bg-mayera-olive text-white";
 
+  async function signOut() {
+    await fetch("/api/auth/logout", { method: "POST" });
+    window.location.assign("/");
+  }
+
   return (
     <div className="min-h-screen bg-[#f5f1ea] lg:grid lg:grid-cols-[270px_1fr]">
       <aside className="border-b border-mayera-line bg-mayera-paper lg:sticky lg:top-0 lg:h-screen lg:border-b-0 lg:border-r">
@@ -66,7 +71,20 @@ export function PortalShell({
             return <Link key={href} href={href} className={`flex shrink-0 items-center gap-3 rounded-xl px-4 py-3 text-sm transition ${active ? activeClass : "text-mayera-espresso/62 hover:bg-mayera-cream hover:text-mayera-espresso"}`}><Icon className="h-[18px] w-[18px]" /><span>{label}</span></Link>;
           })}
         </nav>
-        <div className="hidden absolute bottom-5 left-4 right-4 rounded-2xl border border-mayera-line bg-mayera-cream/55 p-4 lg:block"><p className="text-[10px] uppercase tracking-[0.14em] text-mayera-olive">{footerLabel}</p><p className="mt-2 truncate text-sm font-medium">{userName}</p><p className="mt-1 text-[11px] text-mayera-espresso/48">{roleLabel.replaceAll("_", " ")}</p><button type="button" onClick={async()=>{await fetch("/api/auth/logout",{method:"POST"});window.location.assign("/")}} className="mt-3 flex items-center gap-2 text-xs text-mayera-espresso/58"><LogOutIcon className="h-4 w-4" /> Sign out</button></div>
+        <div className="border-t border-mayera-line px-4 pb-4 pt-3 lg:hidden">
+          <div className="flex items-center justify-between gap-4 rounded-2xl bg-mayera-cream/55 p-4">
+            <div className="min-w-0">
+              <p className="text-[10px] uppercase tracking-[0.14em] text-mayera-olive">Signed in as</p>
+              <p className="mt-1 truncate text-sm font-medium">{userName}</p>
+              <p className="mt-1 text-[11px] text-mayera-espresso/48">{roleLabel.replaceAll("_", " ")}</p>
+            </div>
+            <button type="button" onClick={signOut} className="flex shrink-0 items-center gap-2 rounded-full border border-mayera-line bg-mayera-paper px-4 py-2.5 text-xs text-mayera-espresso/70">
+              <LogOutIcon className="h-4 w-4" />
+              Sign out
+            </button>
+          </div>
+        </div>
+        <div className="hidden absolute bottom-5 left-4 right-4 rounded-2xl border border-mayera-line bg-mayera-cream/55 p-4 lg:block"><p className="text-[10px] uppercase tracking-[0.14em] text-mayera-olive">{footerLabel}</p><p className="mt-2 truncate text-sm font-medium">{userName}</p><p className="mt-1 text-[11px] text-mayera-espresso/48">{roleLabel.replaceAll("_", " ")}</p><button type="button" onClick={signOut} className="mt-3 flex items-center gap-2 text-xs text-mayera-espresso/58"><LogOutIcon className="h-4 w-4" /> Sign out</button></div>
       </aside>
       <main className="min-w-0">
         <div className="mx-auto w-full max-w-[1480px] px-5 py-7 sm:px-6 lg:px-10 lg:py-9">{children}</div>

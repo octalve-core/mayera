@@ -73,6 +73,10 @@ test("portal navigation remains serializable and customer routes reject privileg
   assert.match(portalShell, /const portalIcons =/);
   assert.match(portalShell, /icon: keyof typeof portalIcons/);
   assert.match(portalShell, /const Icon = portalIcons\[icon\]/);
+  assert.match(portalShell, /async function signOut\(\)/);
+  assert.match(portalShell, /fetch\("\/api\/auth\/logout", \{ method: "POST" \}\)/);
+  assert.match(portalShell, /Signed in as/);
+  assert.match(portalShell, /onClick=\{signOut\}/);
   for (const nav of [accountNav, adminNav, superAdminNav]) {
     assert.doesNotMatch(nav, /icon:\s*[A-Z][A-Za-z]+Icon/);
     assert.match(nav, /icon:\s*"[A-Za-z]+"/);
