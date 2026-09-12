@@ -63,6 +63,24 @@ test("privileged routes, sessions, MFA, and mutating APIs retain security gates"
   assert.match(login, /verifyTotp/);
 });
 
+test("portal navigation remains serializable and customer routes reject privileged sessions", () => {
+  const portalShell = readFileSync("src/components/portal/portal-shell.tsx", "utf8");
+  const accountNav = readFileSync("src/features/account/components/nav.ts", "utf8");
+  const adminNav = readFileSync("src/features/admin/components/nav.ts", "utf8");
+  const superAdminNav = readFileSync("src/features/super-admin/components/nav.ts", "utf8");
+  const session = readFileSync("src/server/auth/session.ts", "utf8");
+
+  assert.match(portalShell, /const portalIcons =/);
+  assert.match(portalShell, /icon: keyof typeof portalIcons/);
+  assert.match(portalShell, /const Icon = portalIcons\[icon\]/);
+  for (const nav of [accountNav, adminNav, superAdminNav]) {
+    assert.doesNotMatch(nav, /icon:\s*[A-Z][A-Za-z]+Icon/);
+    assert.match(nav, /icon:\s*"[A-Za-z]+"/);
+  }
+  assert.match(session, /session\.user\.role !== UserRole\.CUSTOMER/);
+  assert.match(session, /isSuperRole\(session\.user\.role\) \? "\/super-admin" : "\/admin"/);
+});
+
 test("database failures produce an actionable service response", () => {
   const request = readFileSync("src/server/security/request.ts", "utf8");
   assert.match(request, /databaseUnavailable \? 503/);

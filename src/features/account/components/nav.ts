@@ -1,11 +1,10 @@
-import { HomeIcon, PackageIcon, MapPinIcon, UserIcon, HeartIcon, FileTextIcon, SettingsIcon, MailIcon } from "@/components/ui/icons";
 export const accountNav = [
-  { href: "/account", label: "Overview", icon: HomeIcon },
-  { href: "/account/orders", label: "Orders", icon: PackageIcon },
-  { href: "/account/addresses", label: "Addresses", icon: MapPinIcon },
-  { href: "/account/wishlist", label: "Wishlist", icon: HeartIcon },
-  { href: "/account/reviews", label: "Reviews", icon: FileTextIcon },
-  { href: "/account/support", label: "Support", icon: MailIcon },
-  { href: "/account/profile", label: "Profile", icon: UserIcon },
-  { href: "/account/privacy", label: "Privacy", icon: SettingsIcon }
-];
+  { href: "/account", label: "Overview", icon: "home" },
+  { href: "/account/orders", label: "Orders", icon: "package" },
+  { href: "/account/addresses", label: "Addresses", icon: "mapPin" },
+  { href: "/account/wishlist", label: "Wishlist", icon: "heart" },
+  { href: "/account/reviews", label: "Reviews", icon: "fileText" },
+  { href: "/account/support", label: "Support", icon: "mail" },
+  { href: "/account/profile", label: "Profile", icon: "user" },
+  { href: "/account/privacy", label: "Privacy", icon: "settings" }
+] as const;

@@ -81,6 +81,7 @@ export const getCurrentSession = cache(async (): Promise<AuthSession | null> => 
 export async function requireCustomer() {
   const session = await getCurrentSession();
   if (!session) redirect("/sign-in?next=/account");
+  if (session.user.role !== UserRole.CUSTOMER) redirect(isSuperRole(session.user.role) ? "/super-admin" : "/admin");
   return session;
 }
 

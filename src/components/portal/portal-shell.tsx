@@ -3,9 +3,34 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BrandLogo } from "@/components/layout/brand-logo";
-import { LogOutIcon } from "@/components/ui/icons";
+import {
+  BoxIcon,
+  FileTextIcon,
+  HeartIcon,
+  HomeIcon,
+  LogOutIcon,
+  MailIcon,
+  MapPinIcon,
+  PackageIcon,
+  SettingsIcon,
+  UserIcon,
+  UsersIcon,
+} from "@/components/ui/icons";
 
-type NavItem = { href: string; label: string; icon: React.ComponentType<{ className?: string }>; permission?: string };
+const portalIcons = {
+  box: BoxIcon,
+  fileText: FileTextIcon,
+  heart: HeartIcon,
+  home: HomeIcon,
+  mail: MailIcon,
+  mapPin: MapPinIcon,
+  package: PackageIcon,
+  settings: SettingsIcon,
+  user: UserIcon,
+  users: UsersIcon,
+} as const;
+
+type NavItem = { href: string; label: string; icon: keyof typeof portalIcons; permission?: string };
 
 export function PortalShell({
   children,
@@ -20,7 +45,7 @@ export function PortalShell({
   children: React.ReactNode;
   title: string;
   kicker: string;
-  nav: NavItem[];
+  nav: readonly NavItem[];
   accent?: "olive" | "amber" | "espresso";
   footerLabel?: string;
   userName: string;
@@ -35,7 +60,8 @@ export function PortalShell({
         <div className="flex h-[82px] items-center justify-between px-5 lg:px-6"><Link href="/"><BrandLogo className="w-[142px]" /></Link><span className="rounded-full bg-mayera-cream px-3 py-1 text-[10px] uppercase tracking-[0.13em] text-mayera-olive lg:hidden">{kicker}</span></div>
         <div className="hidden px-6 lg:block"><p className="text-[10px] font-semibold uppercase tracking-luxury text-mayera-olive">{kicker}</p><h1 className="mt-2 font-serif text-2xl">{title}</h1></div>
         <nav className="no-scrollbar flex gap-2 overflow-x-auto px-4 pb-4 lg:mt-8 lg:block lg:space-y-1 lg:overflow-visible lg:px-4 lg:pb-0">
-          {nav.map(({ href, label, icon: Icon }) => {
+          {nav.map(({ href, label, icon }) => {
+            const Icon = portalIcons[icon];
             const active = pathname === href || (href !== nav[0]?.href && pathname.startsWith(`${href}/`));
             return <Link key={href} href={href} className={`flex shrink-0 items-center gap-3 rounded-xl px-4 py-3 text-sm transition ${active ? activeClass : "text-mayera-espresso/62 hover:bg-mayera-cream hover:text-mayera-espresso"}`}><Icon className="h-[18px] w-[18px]" /><span>{label}</span></Link>;
           })}
