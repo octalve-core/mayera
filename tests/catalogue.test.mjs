@@ -26,17 +26,20 @@ test("the storefront catalogue contains exactly the four requested products", ()
   }
 });
 
-test("only supplied prices are sellable", () => {
-  const mask = productSegment("mayera-mask-150", "mayera-hair-bundle");
-  const bundle = productSegment("mayera-hair-bundle");
-  for (const item of [mask, bundle]) {
-    assert.match(item, /price: 0/);
-    assert.match(item, /priceAvailable: false/);
-    assert.match(item, /availability: "coming-soon"/);
+test("current launch catalogue prices are sellable", () => {
+  const expectations = [
+    ["mayera-oil-100", "mayera-butter-200", 9500],
+    ["mayera-butter-200", "mayera-mask-150", 9500],
+    ["mayera-mask-150", "mayera-hair-bundle", 7500],
+    ["mayera-hair-bundle", undefined, 25000],
+  ];
+
+  for (const [id, nextId, price] of expectations) {
+    const item = productSegment(id, nextId);
+    assert.match(item, new RegExp(`price: ${price}`));
+    assert.match(item, /priceAvailable: true/);
+    assert.match(item, /availability: "available"/);
   }
-  const oil = productSegment("mayera-oil-100", "mayera-butter-200");
-  assert.match(oil, /price: 7500/);
-  assert.match(oil, /availability: "available"/);
 });
 
 test("all requested future catalogue groups are defined for the live catalogue", () => {
