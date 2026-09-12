@@ -78,7 +78,9 @@ export async function POST(request: NextRequest) {
     const encryptedTotp = encryptField(parsed.data.totpSecret);
     const env = serverEnv();
     const owner = await prisma.$transaction(async (tx) => {
-      await tx.$queryRaw`SELECT pg_advisory_xact_lock(687235911)`;
+      await tx.$queryRaw<Array<{ lock_value: string }>>`
+        SELECT pg_advisory_xact_lock(687235911)::text AS lock_value
+      `;
       const existingPrivileged = await tx.user.count({ where: { role: { not: UserRole.CUSTOMER } } });
       if (existingPrivileged > 0) throw new HttpError(409, "First-owner setup is already complete. Sign in through /admin.");
       const existingEmail = await tx.user.findUnique({ where: { email: parsed.data.email }, select: { id: true } });

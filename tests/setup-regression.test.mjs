@@ -59,6 +59,7 @@ test("one-time owner setup is locked, rate-limited, atomic and MFA-protected", (
   assert.match(route, /enforceRateLimit/);
   assert.match(route, /role: \{ not: UserRole\.CUSTOMER \}/);
   assert.match(route, /pg_advisory_xact_lock/);
+  assert.match(route, /pg_advisory_xact_lock\(687235911\)::text/);
   assert.match(route, /verifyTotp/);
   assert.match(route, /TransactionIsolationLevel\.Serializable/);
   assert.match(initializer, /from "@\/data\/products"/);
